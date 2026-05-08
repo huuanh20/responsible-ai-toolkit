@@ -69,6 +69,13 @@ section{max-width:1100px;margin:0 auto;padding:70px 40px}
 .copy-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:6px;font-size:11px;cursor:pointer;margin-top:10px;transition:all .2s;font-family:'Inter',sans-serif}
 .copy-btn:hover{border-color:var(--primary);color:var(--primary)}
 
+/* PROMPT FILTERS */
+.prompt-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.pf-btn{background:var(--surface2);border:1px solid var(--border);color:var(--muted);padding:7px 15px;border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.pf-btn:hover,.pf-btn.active{background:var(--primary);border-color:var(--primary);color:white}
+.prompt-card{transition:all .2s}
+.prompt-card.hidden{display:none}
+
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:12px}
 .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -173,11 +180,21 @@ footer strong{color:var(--text)}
 
 <hr class="divider"/>
 
-<!-- PROMPT LIBRARY -->
 <section id="prompts">
   <div class="section-label">Prompt Library</div>
   <div class="section-title">20 Ready-to-Use Office Prompts</div>
   <div class="section-desc">Copy and customize these prompts for your daily tasks. Replace items in [brackets] with your specific information.</div>
+  <div class="prompt-filters">
+    <button class="pf-btn active" onclick="filterPrompts('all',this)">All (20)</button>
+    <button class="pf-btn" onclick="filterPrompts('email',this)">📧 Email</button>
+    <button class="pf-btn" onclick="filterPrompts('reports',this)">📄 Reports</button>
+    <button class="pf-btn" onclick="filterPrompts('analysis',this)">📊 Analysis</button>
+    <button class="pf-btn" onclick="filterPrompts('meetings',this)">🎯 Meetings</button>
+    <button class="pf-btn" onclick="filterPrompts('content',this)">✍️ Content</button>
+    <button class="pf-btn" onclick="filterPrompts('risk',this)">🔒 Risk</button>
+    <button class="pf-btn" onclick="filterPrompts('hr',this)">👥 HR</button>
+    <button class="pf-btn" onclick="filterPrompts('process',this)">⚙️ Process</button>
+  </div>
   <div class="prompt-grid">
 
     <div class="prompt-card">
@@ -606,6 +623,16 @@ function copyPrompt(btn){
     btn.style.color='var(--green)';
     btn.style.borderColor='var(--green)';
     setTimeout(()=>{btn.textContent='Copy';btn.style.color='';btn.style.borderColor='';},2000);
+  });
+}
+function filterPrompts(cat,btn){
+  document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prompt-card').forEach(card=>{
+    if(cat==='all'){card.classList.remove('hidden');return;}
+    const catEl=card.querySelector('.prompt-category');
+    const cardCat=catEl?catEl.textContent.toLowerCase():'';
+    card.classList.toggle('hidden',!cardCat.includes(cat));
   });
 }
 </script>

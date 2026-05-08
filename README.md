@@ -4,7 +4,7 @@
 
 A practical, interactive web-based guide helping **non-technical employees** adopt AI tools safely, ethically, and effectively in the workplace.
 
-**🔗 Live Demo:** [GitHub Pages link here]  
+**🔗 Live Demo:** [huuanh20.github.io/responsible-ai-toolkit](https://huuanh20.github.io/responsible-ai-toolkit)  
 **👤 Author:** [Nguyen Huu Anh](https://github.com/huuanh20)
 
 ---
