@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Responsible AI Toolkit — FWD Portfolio Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0f1e;--surface:#111827;--surface2:#1a2236;
+  --primary:#3b82f6;--accent:#f97316;--green:#22c55e;--purple:#a855f7;
+  --text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:16px;color:var(--primary)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-badge{background:var(--primary);color:white;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
+
+/* HERO */
+.hero{padding:90px 40px 70px;max-width:1100px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);color:var(--primary);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:24px}
+.hero h1{font-size:52px;font-weight:800;line-height:1.15;margin-bottom:20px}
+.hero h1 span{background:linear-gradient(135deg,var(--primary),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#6366f1);color:white;padding:12px 28px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(59,130,246,0.35)}
+.btn-secondary{background:var(--surface2);color:var(--text);padding:12px 28px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--border);transition:all .2s}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+/* STATS */
+.stats{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 40px}
+.stat{text-align:center}
+.stat-num{font-size:36px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:13px;color:var(--muted);margin-top:2px}
+
+/* SECTIONS */
+section{max-width:1100px;margin:0 auto;padding:70px 40px}
+.section-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--primary);margin-bottom:10px}
+.section-title{font-size:34px;font-weight:800;margin-bottom:12px}
+.section-desc{font-size:16px;color:var(--muted);margin-bottom:44px;max-width:560px}
+
+/* CARDS GRID */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;cursor:pointer}
+.card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.3)}
+.card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.tag{display:inline-block;background:rgba(59,130,246,0.1);color:var(--primary);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;margin:8px 4px 0 0}
+.tag.green{background:rgba(34,197,94,0.1);color:var(--green)}
+.tag.orange{background:rgba(249,115,22,0.1);color:var(--accent)}
+.tag.purple{background:rgba(168,85,247,0.1);color:var(--purple)}
+
+/* PROMPT LIBRARY */
+.prompt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.prompt-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color .2s}
+.prompt-card:hover{border-color:var(--primary)}
+.prompt-category{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.prompt-card h4{font-size:14px;font-weight:600;margin-bottom:8px}
+.prompt-text{background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);font-style:italic;line-height:1.65}
+.copy-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:6px;font-size:11px;cursor:pointer;margin-top:10px;transition:all .2s;font-family:'Inter',sans-serif}
+.copy-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.faq-q{padding:18px 22px;font-weight:600;font-size:14.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq-q:hover{background:var(--surface2)}
+.faq-icon{font-size:18px;transition:transform .3s;color:var(--primary)}
+.faq-a{padding:0 22px 18px;font-size:13.5px;color:var(--muted);line-height:1.7;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:20px}
+.step{display:flex;gap:20px;align-items:flex-start}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--purple));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}
+.step-content h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.step-content p{font-size:13.5px;color:var(--muted)}
+
+/* FOOTER */
+footer{text-align:center;padding:40px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+footer strong{color:var(--text)}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">AI<span>Toolkit</span> · FWD Portfolio</div>
+  <div class="nav-links">
+    <a href="#guides">Guides</a>
+    <a href="#prompts">Prompts</a>
+    <a href="#faq">FAQ</a>
+    <a href="#steps">Safe Use</a>
+  </div>
+  <span class="nav-badge">By Nguyen Huu Anh</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">🛡️ Responsible AI Initiative</div>
+  <h1>Using AI <span>Responsibly</span><br/>in the Workplace</h1>
+  <p>A practical guide for non-technical employees to leverage AI tools safely, ethically, and effectively in daily work.</p>
+  <div class="hero-btns">
+    <a href="#prompts" class="btn-primary">📋 Explore Prompt Library</a>
+    <a href="#faq" class="btn-secondary">❓ Read FAQ</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Ready-to-use Prompts</div></div>
+  <div class="stat"><div class="stat-num">10</div><div class="stat-label">FAQ Topics Covered</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Safe Use Guidelines</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">AI Risk Categories</div></div>
+</div>
+
+<!-- GUIDES -->
+<section id="guides">
+  <div class="section-label">Getting Started</div>
+  <div class="section-title">Quick Reference Guides</div>
+  <div class="section-desc">Everything a non-technical employee needs to start using AI tools confidently and safely.</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(59,130,246,0.1)">🤖</div>
+      <h3>What Is AI & What Can It Do?</h3>
+      <p>AI tools like ChatGPT and Gemini can draft emails, summarize documents, analyze data, and answer questions — but they are assistants, not decision-makers.</p>
+      <span class="tag">Beginner</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(249,115,22,0.1)">⚠️</div>
+      <h3>What NOT to Share with AI</h3>
+      <p>Never input customer personal data (PII), confidential contracts, internal financial reports, or any data marked "Confidential" into public AI tools.</p>
+      <span class="tag orange">Critical</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(34,197,94,0.1)">✅</div>
+      <h3>Approved Use Cases at Work</h3>
+      <p>Drafting internal communications, brainstorming ideas, summarizing public articles, creating presentation outlines, and translating documents.</p>
+      <span class="tag green">Approved</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(168,85,247,0.1)">🔍</div>
+      <h3>Always Verify AI Output</h3>
+      <p>AI can "hallucinate" — generate confident but incorrect information. Always fact-check key figures, names, dates, and legal statements before using them.</p>
+      <span class="tag purple">Important</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(59,130,246,0.1)">⚖️</div>
+      <h3>AI Bias & Fairness</h3>
+      <p>AI systems may reflect biases from their training data. Be especially careful with AI-generated content involving people, demographics, or sensitive decisions.</p>
+      <span class="tag">Ethics</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(249,115,22,0.1)">📋</div>
+      <h3>Your Accountability</h3>
+      <p>You are responsible for any AI-generated content you submit or publish. Review all outputs before sharing. AI is a tool — you are the professional.</p>
+      <span class="tag orange">Policy</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROMPT LIBRARY -->
+<section id="prompts">
+  <div class="section-label">Prompt Library</div>
+  <div class="section-title">20 Ready-to-Use Office Prompts</div>
+  <div class="section-desc">Copy and customize these prompts for your daily tasks. Replace items in [brackets] with your specific information.</div>
+  <div class="prompt-grid">
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">📧 Email</div>
+      <h4>Professional Follow-up Email</h4>
+      <div class="prompt-text">"Write a polite follow-up email to [name/team] regarding [topic]. The meeting was on [date] and the key action item agreed was [action]. Keep it concise and professional."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">📧 Email</div>
+      <h4>Decline Politely</h4>
+      <div class="prompt-text">"Draft a polite email declining [request/meeting/proposal] from [person]. I want to maintain a good relationship. Briefly explain I'm at capacity and suggest [alternative if any]."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">📄 Reports</div>
+      <h4>Executive Summary</h4>
+      <div class="prompt-text">"Summarize the following content into a 3-paragraph executive summary for senior management. Focus on: key findings, business impact, and recommended next steps. Content: [paste content]"</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">📄 Reports</div>
+      <h4>Weekly Status Report</h4>
+      <div class="prompt-text">"Write a professional weekly status report based on these bullet points: [list tasks]. Format it with sections: Completed This Week, In Progress, Blockers, Next Week Plan."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--accent)">📊 Analysis</div>
+      <h4>SWOT Analysis</h4>
+      <div class="prompt-text">"Conduct a SWOT analysis for [topic/project/idea]. Present it in a clear table with Strengths, Weaknesses, Opportunities, and Threats. Context: [brief description]"</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--accent)">📊 Analysis</div>
+      <h4>Compare Options</h4>
+      <div class="prompt-text">"Compare [Option A] and [Option B] across these criteria: [cost, time, risk, etc.]. Present as a comparison table. Conclude with a recommendation and brief rationale."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--purple)">🎯 Meetings</div>
+      <h4>Meeting Agenda</h4>
+      <div class="prompt-text">"Create a structured meeting agenda for a [duration]-minute meeting on [topic]. Include: objective, attendees, agenda items with time slots, and expected outcomes."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--purple)">🎯 Meetings</div>
+      <h4>Meeting Minutes</h4>
+      <div class="prompt-text">"Convert these meeting notes into formal minutes: [paste raw notes]. Format with: Date, Attendees, Key Decisions, Action Items (Owner + Deadline), Next Meeting."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">✍️ Content</div>
+      <h4>Simplify Jargon</h4>
+      <div class="prompt-text">"Rewrite the following technical/legal text so a non-specialist with no background in [field] can understand it easily. Use simple language, short sentences, and analogies where helpful: [text]"</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">✍️ Content</div>
+      <h4>Presentation Outline</h4>
+      <div class="prompt-text">"Create a [N]-slide presentation outline on [topic] for [audience]. Each slide should have a title and 3 key bullet points. Opening should hook the audience; close with a clear call to action."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label">FAQ</div>
+  <div class="section-title">Common Questions About AI at Work</div>
+  <div class="section-desc">Answers to the most frequently asked questions from employees new to AI tools.</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Can I use ChatGPT / Gemini for work tasks?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Yes, for many tasks — but with important boundaries. You may use public AI tools for drafting, brainstorming, summarizing public information, and creating templates. You must NOT input any confidential company data, customer PII, or sensitive documents into these tools, as their data may be used to train future models.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Is AI output always accurate?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">No. AI tools can "hallucinate" — meaning they can generate confident-sounding but completely incorrect information. Always verify facts, figures, names, dates, and any technical or legal content before using it in professional contexts. Think of AI as a fast first draft, not a final source of truth.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>What data am I not allowed to put into AI tools?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Never input: (1) Customer personal information (name, ID, address, phone), (2) Internal financial data, (3) Contracts or legal documents marked confidential, (4) Employee personal records, (5) Proprietary business strategies or unreleased product information. When in doubt, ask your IT or compliance team.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Who is responsible if AI-generated content is wrong?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">You are. As the employee who uses and submits the content, you bear professional responsibility for its accuracy and appropriateness. AI is a tool, not an independent agent. Always review, verify, and approve all AI output before sending or publishing it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Can AI make biased decisions?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Yes. AI systems are trained on large datasets that may contain historical biases. This can lead to biased outputs, especially in tasks involving people evaluation, hiring suggestions, or demographic descriptions. Always apply human judgment to any AI output involving decisions about people.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>What is "Responsible AI"?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Responsible AI is a framework for developing and using AI in a way that is fair, transparent, accountable, and safe. It means ensuring AI tools don't discriminate, that humans remain in control of important decisions, and that privacy and security are protected. Companies like FWD adopt Responsible AI principles to build trust with customers and regulators.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Does using AI mean my job is at risk?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">AI is designed to augment human work, not replace skilled professionals. Employees who learn to use AI effectively become more productive and more valuable. The risk is greater for those who resist learning these tools. Think of AI like email or Excel — a productivity tool that became standard in the workplace.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Can AI-generated content have copyright issues?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Potentially, yes. AI models are trained on internet content and may reproduce patterns from copyrighted works. For creative or published content (marketing copy, articles, etc.), always review outputs carefully and add significant human editing. Consult Legal if publishing externally.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>What should I do if I'm unsure about an AI use case?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Ask before you act. Contact your IT Governance team or line manager to verify whether a specific use case is approved. It's always better to check than to risk a data or compliance breach.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>How do I write a better prompt to get better AI output?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Follow this simple formula: <strong>Role + Task + Context + Format</strong>. Example: "You are a professional business writer [Role]. Draft a follow-up email [Task] for a client meeting about insurance renewal held on May 5th [Context]. Keep it under 100 words and professional in tone [Format]." More specific prompts = much better results.</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 5 STEPS -->
+<section id="steps">
+  <div class="section-label">Safety Framework</div>
+  <div class="section-title">5 Steps to Use AI Safely at Work</div>
+  <div class="section-desc">A simple checklist every employee should follow before using AI for any work task.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>🔍 Identify the task</h4>
+        <p>Is this task suitable for AI? Good fits: drafting, summarizing, brainstorming, translating. Poor fits: making financial decisions, accessing customer records, legal judgments.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>🔒 Check your data</h4>
+        <p>Before typing anything into an AI tool, ask: "Does this contain confidential, personal, or sensitive information?" If yes — stop. Use only anonymized or public information.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>✍️ Write a clear prompt</h4>
+        <p>Use the Role + Task + Context + Format framework. Specific prompts get better results. Vague prompts get vague, potentially unusable outputs.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>✅ Review and verify all output</h4>
+        <p>Read the AI's response critically. Check facts, figures, and logic. Edit to match your voice and ensure accuracy. Never copy-paste AI output without reviewing it first.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>📝 Document your AI use if required</h4>
+        <p>Some teams or compliance frameworks require logging when AI was used to produce content. Check with your manager or IT governance team on your department's policy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Responsible AI Toolkit</strong> · Built by Nguyen Huu Anh · FWD IT Internship Portfolio Project 2026<br/>
+  <span style="font-size:12px;margin-top:6px;display:block">github.com/huuanh20 · Inspired by EU AI Act & Google Responsible AI Practices</span>
+</footer>
+
+<script>
+function toggleFaq(el){
+  const item=el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+function copyPrompt(btn){
+  const text=btn.previousElementSibling.textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ Copied!';
+    btn.style.color='var(--green)';
+    btn.style.borderColor='var(--green)';
+    setTimeout(()=>{btn.textContent='Copy';btn.style.color='';btn.style.borderColor='';},2000);
+  });
+}
+</script>
+</body>
+</html>
