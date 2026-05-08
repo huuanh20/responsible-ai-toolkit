@@ -103,6 +103,8 @@ footer strong{color:var(--text)}
     <a href="#prompts">Prompts</a>
     <a href="#faq">FAQ</a>
     <a href="#steps">Safe Use</a>
+    <a href="#trends">AI Trends</a>
+    <a href="#automation">Automation</a>
   </div>
   <span class="nav-badge">By Nguyen Huu Anh</span>
 </nav>
@@ -118,10 +120,10 @@ footer strong{color:var(--text)}
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Ready-to-use Prompts</div></div>
+  <div class="stat"><div class="stat-num">20</div><div class="stat-label">Ready-to-use Prompts</div></div>
   <div class="stat"><div class="stat-num">10</div><div class="stat-label">FAQ Topics Covered</div></div>
   <div class="stat"><div class="stat-num">5</div><div class="stat-label">Safe Use Guidelines</div></div>
-  <div class="stat"><div class="stat-num">3</div><div class="stat-label">AI Risk Categories</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Prompt Categories</div></div>
 </div>
 
 <!-- GUIDES -->
@@ -245,6 +247,77 @@ footer strong{color:var(--text)}
       <div class="prompt-category" style="color:var(--primary)">✍️ Content</div>
       <h4>Presentation Outline</h4>
       <div class="prompt-text">"Create a [N]-slide presentation outline on [topic] for [audience]. Each slide should have a title and 3 key bullet points. Opening should hook the audience; close with a clear call to action."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">🔒 Risk</div>
+      <h4>Risk Assessment Summary</h4>
+      <div class="prompt-text">"Identify the top 5 risks associated with [project/decision/process]. For each risk, rate likelihood (High/Med/Low), potential impact, and suggest one mitigation action."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">🔒 Risk</div>
+      <h4>Incident Report Draft</h4>
+      <div class="prompt-text">"Write a professional IT incident report for: [brief description of what happened]. Include: Date, Systems Affected, Root Cause (if known), Impact, Actions Taken, and Prevention Measures."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--accent)">👥 HR</div>
+      <h4>Job Description Draft</h4>
+      <div class="prompt-text">"Write a clear job description for a [role title] position at a [industry] company. Include: Role Overview, Key Responsibilities (5 bullets), Required Skills, and Nice-to-Have qualifications. Tone: professional but approachable."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--accent)">👥 HR</div>
+      <h4>Performance Review</h4>
+      <div class="prompt-text">"Based on these notes about an employee's performance: [notes], write a balanced mid-year performance review. Highlight strengths, one area for development, and one specific growth goal for next quarter."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--purple)">🌏 Translation</div>
+      <h4>Vietnamese ↔ English</h4>
+      <div class="prompt-text">"Translate the following text from [Vietnamese/English] to [English/Vietnamese]. Maintain a professional, business-appropriate tone. Preserve the original meaning and any technical terms: [text]"</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--purple)">🌏 Translation</div>
+      <h4>Localize for Vietnamese Audience</h4>
+      <div class="prompt-text">"Rewrite this content so it feels natural and culturally appropriate for a Vietnamese business audience. Keep the core message the same but adjust tone, examples, and phrasing: [content]"</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">📘 Training</div>
+      <h4>Training Module Outline</h4>
+      <div class="prompt-text">"Design a 1-hour training module on [topic] for [target audience]. Include: Learning Objectives (3), Agenda with time slots, Key Concepts to Cover, 1 Group Activity, and a 5-question Quiz outline."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--primary)">📘 Training</div>
+      <h4>FAQ Document Builder</h4>
+      <div class="prompt-text">"Generate a FAQ document for [topic/product/policy] targeting [audience]. Create 8 common questions and clear, concise answers. Each answer should be under 60 words. Organize by theme."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">⚙️ Process</div>
+      <h4>SOP (Standard Operating Procedure)</h4>
+      <div class="prompt-text">"Write a simple SOP for [process name]. Format it with: Purpose, Scope, Responsible Party, Step-by-step Instructions (numbered), and Common Issues & Solutions. Keep language simple enough for a new employee to follow."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-category" style="color:var(--green)">⚙️ Process</div>
+      <h4>Process Improvement Proposal</h4>
+      <div class="prompt-text">"I have a process that currently works like this: [describe current process]. It has these pain points: [list problems]. Suggest 3 specific improvements, explain benefits of each, and flag any risks or dependencies."</div>
       <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
     </div>
 
@@ -384,6 +457,133 @@ footer strong{color:var(--text)}
       <div class="step-content">
         <h4>📝 Document your AI use if required</h4>
         <p>Some teams or compliance frameworks require logging when AI was used to produce content. Check with your manager or IT governance team on your department's policy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- AI TRENDS -->
+<section id="trends">
+  <div class="section-label">Industry Research</div>
+  <div class="section-title">AI Trends in Insurance & Finance (2025–2026)</div>
+  <div class="section-desc">Key trends shaping how AI is adopted in life insurance companies like FWD — sourced from industry reports and regulatory updates.</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(59,130,246,0.1)">🤖</div>
+      <h3>Generative AI for Customer Service</h3>
+      <p>Insurers are deploying GenAI chatbots for policy Q&A, claims status, and premium quotes — reducing call center load by 30–40%. Key risk: hallucination on policy terms.</p>
+      <span class="tag">GenAI</span><span class="tag green">High Adoption</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(249,115,22,0.1)">📋</div>
+      <h3>EU AI Act — Insurance Impact</h3>
+      <p>The EU AI Act (effective Aug 2026) classifies insurance AI as "High Risk." Insurers using AI for underwriting or claims decisions must register systems and maintain audit logs.</p>
+      <span class="tag orange">Compliance</span><span class="tag">Regulation</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(34,197,94,0.1)">📊</div>
+      <h3>AI-Powered Underwriting</h3>
+      <p>Machine learning models now analyze health data, lifestyle factors, and behavioral signals to price policies more accurately — reducing adverse selection risk for insurers.</p>
+      <span class="tag green">Innovation</span><span class="tag">ML</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(168,85,247,0.1)">🔍</div>
+      <h3>Responsible AI Frameworks</h3>
+      <p>Leading insurers adopt NIST AI RMF and ISO/IEC 42001 to govern AI systems. FWD and peers must document model cards, bias tests, and explainability reports for regulators.</p>
+      <span class="tag purple">Governance</span><span class="tag">NIST</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(59,130,246,0.1)">🇻🇳</div>
+      <h3>Vietnam AI Strategy 2030</h3>
+      <p>Vietnam's National AI Strategy targets Top 4 in ASEAN for AI readiness by 2030. Financial sector companies (banks, insurers) are priority adopters with government support.</p>
+      <span class="tag">Vietnam</span><span class="tag green">Opportunity</span>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(249,115,22,0.1)">⚡</div>
+      <h3>Intelligent Process Automation</h3>
+      <p>RPA + AI (IPA) is automating claims processing, document verification, and compliance reporting. Insurers report 60–80% time savings on repetitive back-office tasks.</p>
+      <span class="tag orange">Automation</span><span class="tag">RPA</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- AUTOMATION CHECKLIST -->
+<section id="automation">
+  <div class="section-label">Automation Opportunities</div>
+  <div class="section-title">Can This Task Be Automated?</div>
+  <div class="section-desc">A simple decision framework to identify which manual processes in your team are good candidates for AI/automation improvement.</div>
+  <div class="grid-3">
+    <div class="card" style="border-color:var(--green)">
+      <div class="card-icon" style="background:rgba(34,197,94,0.15)">✅</div>
+      <h3 style="color:var(--green)">High Automation Potential</h3>
+      <p>Tasks that meet ALL of these criteria:</p>
+      <ul style="margin-top:10px;padding-left:18px;font-size:13px;color:var(--muted);line-height:1.8">
+        <li>Done more than 5× per week</li>
+        <li>Follows a consistent, predictable pattern</li>
+        <li>Rule-based with clear inputs & outputs</li>
+        <li>Takes >15 minutes each time</li>
+        <li>Low judgment / creativity required</li>
+      </ul>
+      <span class="tag green">Automate Now</span>
+    </div>
+    <div class="card" style="border-color:var(--accent)">
+      <div class="card-icon" style="background:rgba(249,115,22,0.15)">⚠️</div>
+      <h3 style="color:var(--accent)">Partial Automation (AI-Assist)</h3>
+      <p>Tasks where AI assists but human reviews:</p>
+      <ul style="margin-top:10px;padding-left:18px;font-size:13px;color:var(--muted);line-height:1.8">
+        <li>Involves some judgment/context</li>
+        <li>Output affects customers or compliance</li>
+        <li>Has exceptions and edge cases</li>
+        <li>Requires human sign-off</li>
+        <li>Data is semi-structured</li>
+      </ul>
+      <span class="tag orange">AI + Human</span>
+    </div>
+    <div class="card" style="border-color:#ef4444">
+      <div class="card-icon" style="background:rgba(239,68,68,0.1)">🚫</div>
+      <h3 style="color:#ef4444">Keep Human — Do Not Automate</h3>
+      <p>Tasks that require human judgment:</p>
+      <ul style="margin-top:10px;padding-left:18px;font-size:13px;color:var(--muted);line-height:1.8">
+        <li>High-stakes decisions (claims, legal)</li>
+        <li>Requires empathy or relationship building</li>
+        <li>Regulatory requires human accountability</li>
+        <li>Highly variable — no clear rules</li>
+        <li>Involves sensitive PII or confidential data</li>
+      </ul>
+      <span class="tag" style="background:rgba(239,68,68,0.1);color:#ef4444">Human Only</span>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px">
+    <div style="font-weight:700;font-size:16px;margin-bottom:16px">🏢 Common Office Tasks — Automation Assessment</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Monthly report compilation</span><span class="tag green">High ✅</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Email drafting & follow-ups</span><span class="tag green">High ✅</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Meeting notes & minutes</span><span class="tag green">High ✅</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Data entry & form filling</span><span class="tag green">High ✅</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Compliance update summaries</span><span class="tag orange">Partial ⚠️</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Claims review & approval</span><span class="tag" style="background:rgba(239,68,68,0.1);color:#ef4444">Human 🚫</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Customer complaint handling</span><span class="tag" style="background:rgba(239,68,68,0.1);color:#ef4444">Human 🚫</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:13px">
+        <span>Policy document summarization</span><span class="tag orange">Partial ⚠️</span>
       </div>
     </div>
   </div>
